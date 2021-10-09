@@ -10,11 +10,18 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <ul>
                         @foreach($todos as $todo )
-                            <li class="m-3">
-                                {{ $todo->body }}
+                            <li class="mt-3 flex items-center">
+                                @if($todo->is_completed)
+                                    <span class="text-xl font-bold">{{ $todo->body }}</span>
+                                    <span class="ml-3 text-sm bg-green-200 rounded-xl px-3 py-1 text-green-900">Completed</span>
+                                @else
+                                    {{ $todo->body }}
+                                    <span class="ml-3 text-sm bg-red-200 rounded-xl px-3 py-1 text-red-900">Not Completed</span>
+                                @endif
 
                                 @if(auth()->user()->is($todo->owner))
                                     <form
+                                            class="ml-3"
                                             action="{{ route('todos.toggleStatus', $todo) }}"
                                             method="POST"
                                     >
@@ -25,6 +32,7 @@
                                         </x-button>
                                     </form>
                                     <form
+                                            class="ml-3"
                                             method="POST"
                                             action="{{ route('todos.destroy', $todo) }}"
                                     >
