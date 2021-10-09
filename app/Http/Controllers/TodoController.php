@@ -14,6 +14,7 @@ class TodoController extends Controller
     {
         $todos = Todo::with('owner')
             ->latest()
+            ->take(config('app.pagination.max'))
             ->get();
 
         return view('todos.index', [
