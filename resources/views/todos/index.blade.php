@@ -43,7 +43,14 @@
                                     @endif
                                 </div>
                                 <span class="text-sm">
-                                   Created by {{ $todo->owner->name }} at {{ $todo->created_at->diffForHumans() }}
+                                    Created by
+                                    <a
+                                            class="text-blue-900 font-bold"
+                                            href="{{ route('profile.show', $todo->owner) }}"
+                                    >
+                                        {{ $todo->owner->name }}
+                                    </a>
+                                    at {{ $todo->created_at->diffForHumans() }}
                                 </span>
                             </li>
                         @endforeach

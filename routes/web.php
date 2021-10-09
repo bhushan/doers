@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\ProfileController;
 
 require __DIR__ . '/auth.php';
 
@@ -15,3 +16,5 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('todos/{todo}', [TodoController::class, 'destroy'])->name('todos.destroy');
     Route::put('todos/{todo}/toggle-status', [TodoController::class, 'toggleStatus'])->name('todos.toggleStatus');
 });
+
+Route::get('/@{user:username}', [ProfileController::class, 'show'])->name('profile.show');

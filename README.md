@@ -11,7 +11,7 @@ TODO
 - [x] Todo can be marked completed incomplete by its owner
 - [x] Show todo owner information on index page
 - [ ] Show progress about the list somewhere on profile
-- [ ] User profile page where only user specific todos are listed
+- [x] User profile page where only user specific todos are listed
 - [ ] Follow another user to see his/her todos and progress
 
 # Prerequisites
