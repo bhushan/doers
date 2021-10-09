@@ -14,6 +14,7 @@ class CreateTodosTable extends Migration
             $table->id();
             $table->string('body');
             $table->boolean('is_completed')->default(false);
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

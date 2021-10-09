@@ -23,9 +23,12 @@ class TodoController extends Controller
 
     public function store(Request $request)
     {
-        Todo::create($request->validate([
-            'body' => ['required', 'max:200'],
-        ]));
+        auth()
+            ->user()
+            ->todos()
+            ->create($request->validate([
+                'body' => ['required', 'max:200'],
+            ]));
 
         return redirect(route('todos.index'));
     }

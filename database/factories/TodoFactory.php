@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Todo;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TodoFactory extends Factory
@@ -15,7 +16,8 @@ class TodoFactory extends Factory
     {
         return [
             'body' => $this->faker->sentence,
-            'is_completed' => $this->faker->boolean
+            'is_completed' => $this->faker->boolean,
+            'user_id' => User::factory()
         ];
     }
 }
