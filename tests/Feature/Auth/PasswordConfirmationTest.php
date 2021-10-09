@@ -33,6 +33,8 @@ class PasswordConfirmationTest extends TestCase
 
     public function test_password_is_not_confirmed_with_invalid_password()
     {
+        $this->withExceptionHandling();
+
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->post('/confirm-password', [
