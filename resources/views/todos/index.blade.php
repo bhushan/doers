@@ -13,10 +13,10 @@
                             <li class="mt-3 flex-col">
                                 <div class="flex items-center">
                                     @if($todo->is_completed)
-                                        <span class="text-xl font-bold">{{ $todo->body }}</span>
+                                        {{ $todo->body }}
                                         <span class="ml-3 text-sm bg-green-200 rounded-xl px-3 py-1 text-green-900">Completed</span>
                                     @else
-                                        {{ $todo->body }}
+                                        <span class="text-xl font-bold">{{ $todo->body }}</span>
                                         <span class="ml-3 text-sm bg-red-200 rounded-xl px-3 py-1 text-red-900">Not Completed</span>
                                     @endif
                                     @if(auth()->user() && auth()->user()->is($todo->owner))
