@@ -16,33 +16,20 @@ class TodoController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('todos.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Todo::create($request->validate([
+            'body' => ['required', 'max:200'],
+        ]));
+
+        return redirect(route('todos.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Todo $todo
-     * @return \Illuminate\Http\Response
-     */
     public function show(Todo $todo)
     {
         //
