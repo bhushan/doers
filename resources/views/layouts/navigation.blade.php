@@ -20,6 +20,21 @@
                     >
                         CREATE TODO
                     </x-nav-link>
+                    @guest
+                        <x-nav-link
+                                :href="route('login')"
+                                :active="request()->routeIs('login')"
+                        >
+                            LOG IN
+                        </x-nav-link>
+
+                        <x-nav-link
+                                :href="route('register')"
+                                :active="request()->routeIs('register')"
+                        >
+                            REGISTER
+                        </x-nav-link>
+                    @endguest
                 </div>
             </div>
         @auth()
@@ -112,7 +127,23 @@
                 TODOS
             </x-responsive-nav-link>
         </div>
-        <!-- Responsive Settings Options -->
+        @guest
+            <x-responsive-nav-link
+                    :href="route('login')"
+                    :active="request()->routeIs('login')"
+            >
+                LOG IN
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link
+                    :href="route('register')"
+                    :active="request()->routeIs('register')"
+            >
+                REGISTER
+            </x-responsive-nav-link>
+        @endguest
+
+    <!-- Responsive Settings Options -->
         @auth()
             <div class="pt-4 pb-1 border-t border-gray-200">
                 <div class="px-4">
