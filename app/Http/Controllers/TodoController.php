@@ -12,8 +12,12 @@ class TodoController extends Controller
 {
     public function index()
     {
+        $todos = Todo::with('owner')
+            ->latest()
+            ->get();
+
         return view('todos.index', [
-            'todos' => Todo::all()
+            'todos' => $todos,
         ]);
     }
 
@@ -32,21 +36,6 @@ class TodoController extends Controller
             ]));
 
         return redirect(route('todos.index'));
-    }
-
-    public function show(Todo $todo)
-    {
-        //
-    }
-
-    public function edit(Todo $todo)
-    {
-        //
-    }
-
-    public function update(Request $request, Todo $todo)
-    {
-        //
     }
 
     public function destroy(Todo $todo)

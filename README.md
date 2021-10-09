@@ -7,7 +7,7 @@ TODO
 
 - [x] The Easiest scaffolding for the project
 - [x] Authentication
-- [ ] Create Model, Migration, CRUD for TODO Item
-- [ ] Scope todo item to a particular user (Edit Delete can be done by owner only)
-- [ ] Todo can be marked completed by its owner
+- [x] Scope todo item to a particular user (Delete can be done by owner only)
+- [x] Todo can be marked completed incomplete by its owner
+- [x] Show todo owner information on index page
 - [ ] Show progress about the list somewhere on profile
