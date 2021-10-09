@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Todos
+            TODOS
         </h2>
     </x-slot>
     <div class="py-12">
@@ -12,10 +12,18 @@
                         @foreach($todos as $todo )
                             <li class="m-3">
                                 {{ $todo->body }}
-                                <span class="bg-gray-200 text-sm p-1">
-                                {{ $todo->is_completed ? 'Completed': 'Incomplete' }}
-                                </span>
+
                                 @if(auth()->user()->is($todo->owner))
+                                    <form
+                                            action="{{ route('todos.toggleStatus', $todo) }}"
+                                            method="POST"
+                                    >
+                                        @csrf
+                                        @method('PUT')
+                                        <x-button>
+                                            {{ $todo->is_completed ? 'MARK INCOMPLETE' : 'MARK COMPLETE' }}
+                                        </x-button>
+                                    </form>
                                     <form
                                             method="POST"
                                             action="{{ route('todos.destroy', $todo) }}"

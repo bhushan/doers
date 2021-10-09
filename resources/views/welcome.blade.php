@@ -9,6 +9,12 @@
                     >
                         TODOS
                     </a>
+                    <a
+                            href="{{ route('todos.create') }}"
+                            class="text-sm text-gray-700 dark:text-gray-500 underline"
+                    >
+                        CREATE TODO
+                    </a>
                 @else
                     <a
                             href="{{ route('login') }}"

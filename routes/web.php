@@ -13,4 +13,5 @@ require __DIR__ . '/auth.php';
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('todos', TodoController::class);
+    Route::put('todos/{todo}/toggle-status', [TodoController::class, 'toggleStatus'])->name('todos.toggleStatus');
 });

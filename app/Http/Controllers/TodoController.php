@@ -39,24 +39,11 @@ class TodoController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Todo $todo
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Todo $todo)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Todo $todo
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Todo $todo)
     {
         //
@@ -67,6 +54,16 @@ class TodoController extends Controller
         abort_if($todo->owner->isNot(auth()->user()), Response::HTTP_FORBIDDEN);
 
         $todo->delete();
+
+        return redirect(route('todos.index'));
+    }
+
+    public function toggleStatus(Todo $todo)
+    {
+        abort_if($todo->owner->isNot(auth()->user()), Response::HTTP_FORBIDDEN);
+
+        $todo->is_completed = !$todo->is_completed;
+        $todo->save();
 
         return redirect(route('todos.index'));
     }

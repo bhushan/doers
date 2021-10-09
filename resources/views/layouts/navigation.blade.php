@@ -20,6 +20,12 @@
                     >
                         TODOS
                     </x-nav-link>
+                    <x-nav-link
+                            :href="route('todos.create')"
+                            :active="request()->routeIs('todos.create')"
+                    >
+                        CREATE TODO
+                    </x-nav-link>
                 </div>
             </div>
             <!-- Settings Dropdown -->
