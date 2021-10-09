@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class TodoController extends Controller
 {
@@ -61,14 +62,12 @@ class TodoController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Todo $todo
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Todo $todo)
     {
-        //
+        abort_if($todo->owner->isNot(auth()->user()), Response::HTTP_FORBIDDEN);
+
+        $todo->delete();
+
+        return redirect(route('todos.index'));
     }
 }

@@ -15,6 +15,16 @@
                                 <span class="bg-gray-200 text-sm p-1">
                                 {{ $todo->is_completed ? 'Completed': 'Incomplete' }}
                                 </span>
+                                @if(auth()->user()->is($todo->owner))
+                                    <form
+                                            method="POST"
+                                            action="{{ route('todos.destroy', $todo) }}"
+                                    >
+                                        @csrf
+                                        @method('DELETE')
+                                        <x-button>DELETE</x-button>
+                                    </form>
+                                @endif
                             </li>
                         @endforeach
                     </ul>
