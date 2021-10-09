@@ -5,7 +5,7 @@
                 @auth
                     <a
                             href="{{ route('todos.index') }}"
-                            class="text-sm text-gray-700 dark:text-gray-500 underline"
+                            class="text-sm text-gray-700 dark:text-gray-500 underline mr-3"
                     >
                         TODOS
                     </a>

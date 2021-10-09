@@ -19,7 +19,7 @@
                                     <span class="ml-3 text-sm bg-red-200 rounded-xl px-3 py-1 text-red-900">Not Completed</span>
                                 @endif
 
-                                @if(auth()->user()->is($todo->owner))
+                                @if(auth()->user() && auth()->user()->is($todo->owner))
                                     <form
                                             class="ml-3"
                                             action="{{ route('todos.toggleStatus', $todo) }}"
