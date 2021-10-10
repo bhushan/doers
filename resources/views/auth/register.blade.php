@@ -48,7 +48,7 @@
                 />
             </div>
             <!-- Username -->
-            <div>
+            <div class="mt-4">
                 <x-label
                         for="username"
                         :value="__('Username')"
@@ -60,7 +60,6 @@
                         name="username"
                         :value="old('username')"
                         required
-                        autofocus
                 />
             </div>
             <!-- Password -->
