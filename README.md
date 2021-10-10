@@ -1,4 +1,4 @@
-# Todoist
+# Doers
 
 Social media app to showcase your todo list and its current progress mostly to motivate others and get motivated by
 others.
@@ -13,6 +13,8 @@ TODO
 - [ ] Show progress about the list somewhere on profile
 - [x] User profile page where only user specific todos are listed
 - [ ] Follow another user to see his/her todos and progress
+- [ ] If authenticated user, show only todos from person he/she follows and his/her own todos on main page
+- [ ] Design better pages and looks (the lowest priority)
 
 # Prerequisites
 
@@ -36,13 +38,13 @@ TODO
 - Do the git clone of the project
 
 ```bash
-git clone https://github.com/bhushan/todoist.git
+git clone https://github.com/bhushan/doers.git
 ```
 
 - Navigate inside project directory
 
 ```bash
-cd todoist
+cd doers
 ```
 
 - Install composer dependencies
