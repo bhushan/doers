@@ -22,4 +22,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/@{user:username}', [ProfileController::class, 'show'])->name('profile.show');
 
 Route::get('/@{user:username}/followers', [FollowerController::class, 'index'])->name('followers.index');
+Route::post('/@{user:username}/followers', [FollowerController::class, 'store'])->name('followers.store');
+Route::delete('/@{user:username}/followers', [FollowerController::class, 'destroy'])->name('followers.destroy');
+
 Route::get('/@{user:username}/following', [FollowingController::class, 'index'])->name('following.index');

@@ -12,7 +12,7 @@ TODO
 - [x] Show todo owner information on index page
 - [ ] Show progress about the list somewhere on profile
 - [x] User profile page where only user specific todos are listed
-- [ ] Follow another user to see his/her todos and progress
+- [x] Follow/Unfollow another user to see his/her todos and progress
 - [ ] If authenticated user, show only todos from person he/she follows and his/her own todos on main page
 - [ ] Design better pages and looks (the lowest priority)
 

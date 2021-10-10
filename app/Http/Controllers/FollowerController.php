@@ -15,4 +15,18 @@ class FollowerController extends Controller
             'followers' => $user->followers
         ]);
     }
+
+    public function store(User $user)
+    {
+        auth()->user()->following()->attach($user);
+
+        return back();
+    }
+
+    public function destroy(User $user)
+    {
+        auth()->user()->following()->detach($user);
+
+        return back();
+    }
 }

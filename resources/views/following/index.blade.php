@@ -15,7 +15,7 @@
                                     {{ $followee->name }}
                                     {{ '@' . $followee->username }}
                                 </a>
-                                <x-button>Follow/Unfollow</x-button>
+                                <x-unfollow-button :user="$followee" />
                             </li>
                         @endforeach
                     </ul>

@@ -15,7 +15,9 @@
                                     {{ $follower->name }}
                                     {{ '@' . $follower->username }}
                                 </a>
-                                <x-button>Follow/Unfollow</x-button>
+                                @if(auth()->user() && auth()->user()->isNot($follower))
+                                    <x-follow-button :user="$follower" />
+                                @endif
                             </li>
                         @endforeach
                     </ul>

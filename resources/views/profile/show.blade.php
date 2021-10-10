@@ -1,23 +1,22 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $user->name }}'s todo list,
+            {{ $profileUser->name }}'s todo list,
             <a
-                    href="{{ route('following.index', $user) }}"
+                    href="{{ route('following.index', $profileUser) }}"
                     class="text-sm text-blue-900 font-bold"
             >
                 ({{ $followingCount }} following)
             </a>
             <a
-                    href="{{ route('followers.index', $user) }}"
+                    href="{{ route('followers.index', $profileUser) }}"
                     class="text-sm text-blue-900 font-bold"
             >
                 ({{ $followerCount }} followers)
             </a>
-            @if(auth()->user() && auth()->user()->isNot($user))
-                <x-button class="ml-3">
-                    Follow/ Unfollow
-                </x-button>
+            @if(auth()->user() && auth()->user()->isNot($profileUser))
+                <x-follow-button :user="$profileUser" />
+                <x-unfollow-button :user="$profileUser" />
             @endif
         </h2>
     </x-slot>
