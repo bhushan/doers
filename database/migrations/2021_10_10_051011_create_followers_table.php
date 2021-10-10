@@ -16,11 +16,11 @@ class CreateFollowersTable extends Migration
             $table->foreignId('follower_id')
                 ->comment('a person who is following')
                 ->references('id')->on('users');
-            $table->foreignId('followee_id')
+            $table->foreignId('following_id')
                 ->comment('a person who is being followed')
                 ->references('id')->on('users');
 
-            $table->unique(['follower_id', 'followee_id']);
+            $table->unique(['follower_id', 'following_id']);
 
             $table->timestamps();
         });

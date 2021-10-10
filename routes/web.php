@@ -5,6 +5,8 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\FollowingController;
 
 require __DIR__ . '/auth.php';
 
@@ -18,3 +20,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/@{user:username}', [ProfileController::class, 'show'])->name('profile.show');
+
+Route::get('/@{user:username}/followers', [FollowerController::class, 'index'])->name('followers.index');
+Route::get('/@{user:username}/following', [FollowingController::class, 'index'])->name('following.index');
